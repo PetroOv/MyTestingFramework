@@ -45,7 +45,6 @@ public class Contact {
 
     @Override
     public int hashCode() {
-
         int result = Objects.hash(getMessage(), getStatus());
         result = 31 * result + Arrays.hashCode(getData());
         return result;
@@ -58,4 +57,13 @@ public class Contact {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public int getId() {
+        return this.getData()[0].getId();
+    }
+
+    public Info getInfo() {
+        return this.getData()[0].getInfo();
+    }
+
 }

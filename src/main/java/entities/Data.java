@@ -7,6 +7,15 @@ public class Data {
     private Info info;
     private Refs refs;
 
+    public Data(int id, Info info, Refs refs) {
+        this.Id = id;
+        this.info = info;
+        this.refs = refs;
+    }
+
+    public Data() {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

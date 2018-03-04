@@ -8,6 +8,16 @@ public class Refs {
     private String delete;
     private String put;
 
+    public Refs() {
+    }
+
+    public Refs(String refs) {
+        this.patch = refs;
+        this.delete = refs;
+        this.get = refs;
+        this.put = refs;
+    }
+
     @Override
     public String toString() {
         return "Refs{" +
@@ -31,7 +41,6 @@ public class Refs {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getPatch(), getGet(), getDelete(), getPut());
     }
 
