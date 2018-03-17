@@ -1,9 +1,9 @@
-package api;
+package api.contacts;
 
-import entities.Contact;
-import entities.Data;
-import entities.Info;
-import entities.Refs;
+import entities.contacts.Contact;
+import entities.contacts.Data;
+import entities.contacts.Info;
+import entities.contacts.Refs;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -19,7 +19,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.IsNot.not;
 
-public class SaasContactEndpointTest {
+public class ContactEndpointTest {
     private final static String HOST = "192.168.1.129";
     private final static String PORT = "8182";
     private final static String URL = "http://" + HOST + ":" + PORT;

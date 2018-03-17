@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 
-public class SaasApplicationEndpointTest {
+public class ApplicationEndpointTest {
     private final static String HOST = "192.168.1.129";
     private final static String PORT = "8182";
     private final static String URL = "http://" + HOST + ":" + PORT;

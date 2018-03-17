@@ -1,4 +1,4 @@
-package entities;
+package entities.contacts;
 
 import java.util.Arrays;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package entities;
+package entities.contacts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
