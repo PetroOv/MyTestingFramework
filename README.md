@@ -6,4 +6,4 @@
 
 **Generate report**
 
-`mvn -Dtype=API allure:serve`
+`mvn allure:serve`

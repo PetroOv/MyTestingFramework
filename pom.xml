@@ -12,10 +12,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin-version}</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven-version}</version>
             </plugin>
         </plugins>
     </build>
@@ -114,7 +120,7 @@
                                 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                             </argLine>
                             <includes>
-                                <include>**/api/*Test.java</include>
+                                <include>**/api/**/*Test.java</include>
                             </includes>
                             <properties>
                                 <property>
@@ -136,20 +142,6 @@
                                 <version>${aspectj.version}</version>
                             </dependency>
                         </dependencies>
-                    </plugin>
-                    <plugin>
-                        <groupId>io.qameta.allure</groupId>
-                        <artifactId>allure-maven</artifactId>
-                        <version>${allure-maven-version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${compiler-plugin-version}</version>
-                        <configuration>
-                            <source>${java-version}</source>
-                            <target>${java-version}</target>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -198,20 +190,6 @@
                             </dependency>
                         </dependencies>
                     </plugin>
-                    <plugin>
-                        <groupId>io.qameta.allure</groupId>
-                        <artifactId>allure-maven</artifactId>
-                        <version>${allure-maven-version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${compiler-plugin-version}</version>
-                        <configuration>
-                            <source>${java-version}</source>
-                            <target>${java-version}</target>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -258,20 +236,6 @@
                                 <version>${aspectj.version}</version>
                             </dependency>
                         </dependencies>
-                    </plugin>
-                    <plugin>
-                        <groupId>io.qameta.allure</groupId>
-                        <artifactId>allure-maven</artifactId>
-                        <version>${allure-maven-version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${compiler-plugin-version}</version>
-                        <configuration>
-                            <source>${java-version}</source>
-                            <target>${java-version}</target>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
