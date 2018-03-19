@@ -25,12 +25,12 @@ public abstract class BaseAPI {
     }
 
 
-    public abstract Response post();
+    public abstract Response post(String bodyData);
 
     public abstract Response get();
 
-    public abstract Response patch();
+    public abstract Response patch(int id, String bodyData);
 
-    public abstract Response put();
+    public abstract Response put(int id, String bodyData);
 
 }
