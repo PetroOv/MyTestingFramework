@@ -15,6 +15,6 @@ public class HealthcheckEndpointTest {
     public void healthCheckTest(){
         Response response = api.get();
         assertThat("", response.getStatusCode(), is(200));
-        assertThat("", response.getBody().toString(), is("live"));
+        assertThat("", response.body().asString(), is("live"));
     }
 }

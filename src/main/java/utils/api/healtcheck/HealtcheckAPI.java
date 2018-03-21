@@ -12,6 +12,7 @@ public class HealtcheckAPI extends BaseAPI {
     public HealtcheckAPI() {
         super();
         setEndpointName(cs.api.getEndpointPathByName("healthcheck"));
+        setURL(cs.environment.getAPIAddress());
     }
 
     @Override
