@@ -1,8 +1,6 @@
 package entities.contacts;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Info {
@@ -50,27 +48,6 @@ public class Info {
     public int hashCode() {
 
         return Objects.hash(getEmail(), getFirstName(), getLastName());
-    }
-
-    public String getRequestData() {
-        StringBuilder result = new StringBuilder();
-        List<String> resultList = new ArrayList<>();
-        result.append("{");
-        if (email != null)
-            resultList.add("\"email\":\"" + (email) + ("\""));
-        if (firstName != null)
-            resultList.add("\"firstName\":\"" + (firstName) + ("\""));
-        if (lastName != null)
-            resultList.add("\"lastName\":\"" + (lastName) + ("\""));
-        for (int i = 0; i < resultList.size(); i++) {
-            result.append(resultList.get(i));
-            if (i != resultList.size() - 1)
-                result.append(",");
-        }
-        result.append("}");
-        return String.valueOf(result);
-
-//        return "{\"email\":\"" + email  +"\",\"firstName\":\"" + firstName + "\",\"lastName\":\"" +lastName +"\"}";
     }
 
     public String getFirstName() {

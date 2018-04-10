@@ -1,49 +1,46 @@
 package api.contacts;
 
+import com.github.javafaker.Faker;
 import entities.contacts.Contact;
 import entities.contacts.Data;
 import entities.contacts.Info;
 import entities.contacts.Refs;
 
 public class TestData {
-    private Info contactInfo = new Info("first_name.last_name@gmail.com", "first_name", "last_name");
-    private Info newContactInfo = new Info("new_first_name.last_name@gmail.com", "new_first_name", "new_last_name");
-    private Info newContactEmail = new Info();
-    private Contact firstContact = new Contact();
-    private Contact firstIncorrectContact = new Contact();
-    private Info firstContactInfo = new Info("john.doe@unknown.com", "John", "Doe");
+    private Info testInfo;
+    private Contact testContact;
+    Faker faker;
 
-    {
-        newContactEmail.setEmail(("only_new_email@gmail.com"));
-        firstContact.setData(new Data[]{new Data(1, firstContactInfo, new Refs("http://host:port/api/v1/contacts/1"))});
-        firstIncorrectContact.setData(new Data[]{new Data(1, firstContactInfo, new Refs("http://host:port/api/v1/contacts/2"))});
-        firstIncorrectContact.setMessage("");
-        firstIncorrectContact.setStatus(200);
-        firstContact.setStatus(200);
-        firstContact.setMessage("");
+
+
+    public TestData() {
+        testInfo = new Info();
+        testContact = new Contact();
+        faker = new Faker();
     }
 
-    public Info getContactInfo() {
-        return contactInfo;
+    public TestData fillData(){
+        testInfo.setFirstName(faker.name().firstName());
+        testInfo.setLastName(faker.name().lastName());
+        testInfo.setEmail(faker.internet().emailAddress());
+        return this;
     }
 
-    public Info getNewContactInfo() {
-        return newContactInfo;
+    public TestData setEmail(String email){
+        testInfo.setEmail(email);
+        return this;
+    }
+    public TestData setFirstName(String firstName){
+        testInfo.setFirstName(firstName);
+        return this;
+    }
+    public TestData setLastName(String lastName){
+        testInfo.setLastName(lastName);
+        return this;
     }
 
-    public Info getNewContactEmail() {
-        return newContactEmail;
+    public Info getTestInfo(){
+        return testInfo;
     }
 
-    public Contact getFirstContact() {
-        return firstContact;
-    }
-
-    public Contact getFirstIncorrectContact() {
-        return firstIncorrectContact;
-    }
-
-    public Info getFirstContactInfo() {
-        return firstContactInfo;
-    }
 }

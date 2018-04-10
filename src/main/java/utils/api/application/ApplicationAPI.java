@@ -1,15 +1,13 @@
-package utils.api.healtcheck;
+package utils.api.application;
 
 import io.restassured.response.Response;
 import utils.api.BaseAPI;
-import utils.api.contacts.ContactsAPI;
 
 import static io.restassured.RestAssured.given;
 
-public class HealtcheckAPI extends BaseAPI {
-    String contentType = "application/json";
+public class ApplicationAPI extends BaseAPI {
 
-    public HealtcheckAPI() {
+    public ApplicationAPI() {
         super();
         setEndpointName(cs.api.getEndpointPathByName("healthcheck"));
         setURL(cs.environment.getAPIAddress());
@@ -22,7 +20,7 @@ public class HealtcheckAPI extends BaseAPI {
 
     @Override
     public Response get() {
-        return given().contentType(contentType).when().get(getURL());
+        return given().get(getURL()).andReturn();
     }
 
     @Override
@@ -34,5 +32,4 @@ public class HealtcheckAPI extends BaseAPI {
     public <T> Response put(int id, T bodyData) {
         return null;
     }
-
 }

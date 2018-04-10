@@ -7,7 +7,7 @@ public abstract class BaseAPI {
 
     protected final ConfigurationSetup cs;
     private String endpointName = "";
-    private  String  URL;
+    private String URL;
 
 
     public BaseAPI() {
@@ -23,17 +23,18 @@ public abstract class BaseAPI {
     public String getURL() {
         return URL + endpointName;
     }
-    public void setURL(String URL){
+
+    public void setURL(String URL) {
         this.URL = URL;
     }
 
 
-    public abstract Response post(String bodyData);
+    public abstract <T> Response post(T bodyData);
 
     public abstract Response get();
 
-    public abstract Response patch(int id, String bodyData);
+    public abstract<T> Response patch(int id, T bodyData);
 
-    public abstract Response put(int id, String bodyData);
+    public abstract<T> Response put(int id, T bodyData);
 
 }
