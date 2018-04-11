@@ -36,18 +36,9 @@ public class ContactEndpointTest {
         Contact contact = steps.getResponseAsContact(response);
         steps.deleteContact(contact.getId());
         assertThat("Invalid status code", response.getStatusCode(), is(201));
-
-    }
-
-    @Test
-    @Description("POST new contact and check response body contact representation.")
-    @DisplayName("POST method response body test")
-    public void postContactRBTest() {
-        Response response = steps.postContact(testData.getTestInfo());
-        Contact contact = steps.getResponseAsContact(response);
-        steps.deleteContact(contact.getId());
         assertThat("Contact info isn`t equal", contact.getInfo(), is(testData.getTestInfo()));
     }
+
 
     @Test
     @Description("POST new contact and try get it by id")
@@ -147,19 +138,11 @@ public class ContactEndpointTest {
         Contact expectedContact = steps.getResponseAsContact(response);
         response = steps.deleteContact(expectedContact.getId());
         Contact contact = steps.getResponseAsContact(response);
+        assertThat("", response.getStatusCode(), is(200));
         assertThat("", contact, equalTo(expectedContact));
     }
 
-    @Test
-    @Description("DELETE 'Contact' by id. Check that response code is 200")
-    @DisplayName("DELETE method status code test")
-    public void deleteContactRCTest() {
-        Response response = steps.postContact(testData.getTestInfo());
-        Contact expectedContact = steps.getResponseAsContact(response);
-        response = steps.deleteContact(expectedContact.getId());
-        Contact contact = steps.getResponseAsContact(response);
-        assertThat("", response.getStatusCode(), is(200));
-    }
+   
 
     @Test
     @Description("Get actual representation to check that it was removed")
