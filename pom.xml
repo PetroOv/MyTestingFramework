@@ -42,6 +42,7 @@
         <restassured-version>3.0.7</restassured-version>
         <overwrite.binaries>false</overwrite.binaries>
         <javafaker-version>0.14</javafaker-version>
+        <webdrivermanager.version>2.1.0</webdrivermanager.version>
         <env>production</env>
     </properties>
 
@@ -52,7 +53,6 @@
             <version>${allure-version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -69,24 +69,8 @@
             <version>${junit-version}</version>
         </dependency>
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>${selenium-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.yandex.qatools.ashot</groupId>
-            <artifactId>ashot</artifactId>
-            <version>${aShot-version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>${restassured-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>json-schema-validator</artifactId>
             <version>${restassured-version}</version>
         </dependency>
         <dependency>
@@ -104,6 +88,17 @@
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${javafaker-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -179,7 +174,7 @@
                                 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                             </argLine>
                             <includes>
-                                <include>**/ui/*Test.java</include>
+                                <include>**/ui/**/*Test.java</include>
                             </includes>
                             <properties>
                                 <property>
@@ -191,6 +186,10 @@
                                 <property>
                                     <name>allure.results.directory</name>
                                     <value>${project.build.directory}/allure-results</value>
+                                </property>
+                                <property>
+                                    <name>browser</name>
+                                    <value>chrome</value>
                                 </property>
                             </systemProperties>
                         </configuration>

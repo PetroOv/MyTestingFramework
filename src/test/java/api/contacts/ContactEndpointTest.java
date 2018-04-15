@@ -88,7 +88,7 @@ public class ContactEndpointTest {
     public void putContactRCTest() {
         Response response = steps.postContact(testData.getTestInfo());
         Contact contact = steps.getResponseAsContact(response);
-        response = steps.putContact(contact.getId(), testData.getNewContactInfo().getRequestData());
+        response = steps.putContact(contact.getId(), testData.getNewContactInfo());
         steps.deleteContact(contact.getId());
         assertThat("", response.getStatusCode(), is(200));
     }
@@ -99,7 +99,7 @@ public class ContactEndpointTest {
     public void putContactRBTest() {
         Response response = steps.postContact(testData.getTestInfo());
         Contact contact = steps.getResponseAsContact(response);
-        response = steps.putContact(contact.getId(), testData.getNewContactInfo().getRequestData());
+        response = steps.putContact(contact.getId(), testData.getNewContactInfo());
         contact = steps.getResponseAsContact(response);
         steps.deleteContact(contact.getId());
         assertThat("", contact.getInfo(), equalTo(testData.getNewContactInfo()));
@@ -111,7 +111,7 @@ public class ContactEndpointTest {
     public void patchContactRCTest() {
         Response response = steps.postContact(testData.getTestInfo());
         Contact contact = steps.getResponseAsContact(response);
-        response = steps.patchContact(contact.getId(), testData.getNewContactEmail().getRequestData());
+        response = steps.patchContact(contact.getId(), testData.getNewContactEmail());
         steps.deleteContact(contact.getId());
         assertThat("", response.getStatusCode(), is(200));
     }
@@ -122,11 +122,11 @@ public class ContactEndpointTest {
     public void patchContactRBTest() {
         Response response = steps.postContact(testData.getTestInfo());
         Contact contact = steps.getResponseAsContact(response);
-        response = steps.patchContact(contact.getId(), testData.getNewContactEmail().getRequestData());
+        response = steps.patchContact(contact.getId(), testData.getNewContactEmail());
         contact = steps.getResponseAsContact(response);
         steps.deleteContact(contact.getId());
         Info expectedContactInfo = testData.getTestInfo();
-        expectedContactInfo.setEmail(testData.getNewContactEmail().getEmail());
+        expectedContactInfo.setEmail(testData.getNewContactEmail());
         assertThat("", contact.getInfo(), equalTo(expectedContactInfo));
     }
 

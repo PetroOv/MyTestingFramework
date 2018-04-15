@@ -43,4 +43,19 @@ public class TestData {
         return testInfo;
     }
 
+    public Contact getFirstContact() {
+        return null;
+    }
+
+    public Info getFirstContactInfo() {
+        return null;
+    }
+
+    public Info getNewContactInfo() {
+        return null;
+    }
+
+    public String getNewContactEmail() {
+        return null;
+    }
 }
