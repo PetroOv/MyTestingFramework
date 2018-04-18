@@ -9,7 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverConfiguration {
-    public static WebDriver getDriver() {
+    public WebDriver getDriver() {
         WebDriver driver;
         String browserName = System.getProperty("browser").toLowerCase();
         switch (browserName) {
