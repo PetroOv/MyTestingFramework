@@ -8,10 +8,12 @@ Requriments: JDK 1.8, Maven 3
 
 `mvn clean -Dtype=UI test`
 
-Supported browsers: Chrome, Firefox, Edge(only if run on Windows 10)
+Supported browsers: Chrome, Firefox, Edge(only if run on Windows 10).
 Default browser: Chrome;
-To change browse use -Dbrowser initial parameter
-Example: mvn clean test -Dtype=UI -Dbrowser=Firefox
+
+To change browser use '-Dbrowser' initial parameter.
+
+Example: `mvn clean test -Dtype=UI -Dbrowser=Firefox`
 
 **Generate report**
 
