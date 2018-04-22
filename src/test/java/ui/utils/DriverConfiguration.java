@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverConfiguration {
     public WebDriver getDriver() {
         WebDriver driver;
+        System.setProperty("browser", "chrome");
         String browserName = System.getProperty("browser").toLowerCase();
         switch (browserName) {
             case "chrome":
