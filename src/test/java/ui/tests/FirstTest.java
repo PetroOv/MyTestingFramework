@@ -33,7 +33,6 @@ public class FirstTest {
     public String linkNumber;
 
     public static int init() {
-
         WebDriver authDriver = null;
         authDriver = new DriverConfiguration().getDriver();
         authDriver.get(URL);
@@ -47,7 +46,6 @@ public class FirstTest {
             authDriver.quit();
         }
         return result;
-
     }
 
     @Parameterized.Parameters
