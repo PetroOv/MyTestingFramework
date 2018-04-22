@@ -40,7 +40,7 @@ public class CheckOutPage extends BasePage {
 
     public CheckOutPage clearCheckOutList() {
         int size = checkOutedProducts.size();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < size; i++) {
             WebElement table = driver.findElement(tableBy);
             removeProduct();
             new WebDriverWait(driver, 10).until(stalenessOf(table));
