@@ -5,16 +5,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ui.pages.*;
 import ui.utils.DriverConfiguration;
+import ui.utils.Listener;
 
 import static org.hamcrest.CoreMatchers.is;
 
 public class ThirdHomework {
-    private WebDriver driver;
+    private EventFiringWebDriver  driver;
     private static String URL = "http://localhost/litecart/";
     private static String ADMIN_URL = "http://localhost/litecart/admin/";
     LoginAdminPage page;
@@ -28,7 +31,8 @@ public class ThirdHomework {
 
     @Before
     public void setUp() throws Exception {
-        driver = new DriverConfiguration().getDriver();
+        driver = new EventFiringWebDriver(new DriverConfiguration().getDriver());
+        driver.register(new Listener());
     }
 
     @Test

@@ -142,7 +142,7 @@ public class ContactEndpointTest {
         assertThat("", contact, equalTo(expectedContact));
     }
 
-   
+
 
     @Test
     @Description("Get actual representation to check that it was removed")
